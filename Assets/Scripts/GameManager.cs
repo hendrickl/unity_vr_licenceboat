@@ -9,4 +9,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
 }
