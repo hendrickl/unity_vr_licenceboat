@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DrumScene.unity
     guid: 7661fc1cddd281242bb7d6842a8a2866
+  - enabled: 1
+    path: Assets/Scenes/LicenceBoat.unity
+    guid: 2f36965b2348c084fb10a14924d0e887
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b2192d69b939df94f8d7a9fb16ca0667,
       type: 2}
