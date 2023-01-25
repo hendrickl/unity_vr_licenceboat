@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class BigBoatManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 _targetPosition;
+    [SerializeField] private GameObject _targetPoint;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _timer;
+    [SerializeField] private AudioSource _audioSource;
+
+    private void Awake()
     {
-        
+        _targetPosition = _targetPoint.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        iTween.MoveTo(gameObject, iTween.Hash("position", _targetPosition, "speed", _speed, "easetype", "linear"));
+
+        _audioSource.loop = false;
+        _audioSource.volume = 1f;
+        Invoke("TriggerAudio", _timer);
+    }
+
+    private void TriggerAudio()
+    {
+        _audioSource.Play();
+        Invoke("TriggerAudioAgain", _audioSource.clip.length);
+    }
+
+    private void TriggerAudioAgain()
+    {
+        _audioSource.Play();
     }
 }
