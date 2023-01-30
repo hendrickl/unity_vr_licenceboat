@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _instruction;
+    [SerializeField] private AudioSource _audioSourceInstruction;
     [SerializeField] private AudioSource _audioSourceBad;
     [SerializeField] private AudioSource _audioSourceGood;
+    [SerializeField] private float _timerAudio;
+    [SerializeField] private float _timerInstruction;
+
+    private void Start()
+    {
+        Invoke("TriggerAudioInstruction", _timerAudio);
+        Invoke("DisplayInstruction", _timerInstruction);
+    }
 
     public void RestarScene()
     {
@@ -16,6 +26,16 @@ public class GameManager : MonoBehaviour
     public void LoadScene(int index)
     {
         SceneManager.LoadScene(index);
+    }
+
+    private void TriggerAudioInstruction()
+    {
+        _audioSourceInstruction.Play();
+    }
+
+    private void DisplayInstruction()
+    {
+        _instruction.SetActive(true);
     }
 
     public void BadAnswer()
