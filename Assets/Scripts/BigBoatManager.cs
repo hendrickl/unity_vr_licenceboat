@@ -17,7 +17,7 @@ public class BigBoatManager : MonoBehaviour
 
     void Start()
     {
-        iTween.MoveTo(gameObject, iTween.Hash("position", _targetPosition, "speed", _speed, "easetype", "linear"));
+        MoveBoat();
 
         if (!_audioSource)
         {
@@ -27,17 +27,23 @@ public class BigBoatManager : MonoBehaviour
         {
             _audioSource.loop = false;
             _audioSource.volume = 1f;
-            Invoke("TriggerAudio", _timer);
+            Invoke("TriggerAudioKlaxoon", _timer);
         }
     }
 
-    private void TriggerAudio()
+    private void MoveBoat()
     {
-        _audioSource.Play();
-        Invoke("TriggerAudioAgain", _audioSource.clip.length);
+        iTween.MoveTo(gameObject, iTween.Hash("position", _targetPosition, "speed", _speed, "easetype", "linear"));
+
     }
 
-    private void TriggerAudioAgain()
+    private void TriggerAudioKlaxoon()
+    {
+        _audioSource.Play();
+        Invoke("TriggerAudioKlaxoonAgain", _audioSource.clip.length);
+    }
+
+    private void TriggerAudioKlaxoonAgain()
     {
         _audioSource.Play();
     }
