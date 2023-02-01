@@ -395,7 +395,6 @@ GameObject:
   - component: {fileID: 152368383}
   - component: {fileID: 152368384}
   - component: {fileID: 152368385}
-  - component: {fileID: 152368386}
   m_Layer: 3
   m_Name: XR Origin
   m_TagString: Untagged
@@ -644,7 +643,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152368374}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c99b3f29666ab3240bd4ee3e994670a7, type: 3}
@@ -733,22 +732,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &152368386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152368374}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60076d096d24d4d4781cea0d46154729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 152368385}
-  _instruction: {fileID: 1413470040}
-  _timerAudio: 5
-  _timerInstruction: 19
 --- !u!1 &188236638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,7 +2581,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398262706}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BadAnswer
+        m_MethodName: TriggerAudioBadAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3862,7 +3845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1413470041
 Transform:
   m_ObjectHideFlags: 0
@@ -4809,7 +4792,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398262706}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GoodAnswer
+        m_MethodName: TriggerAudioGoodAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5549,7 +5532,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398262706}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BadAnswer
+        m_MethodName: TriggerAudioBadAnswer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

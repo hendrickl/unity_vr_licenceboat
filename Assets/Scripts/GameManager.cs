@@ -28,23 +28,23 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    private void TriggerAudioInstruction()
-    {
-        _audioSourceInstruction.Play();
-    }
-
     private void DisplayInstruction()
     {
         _instruction.SetActive(true);
     }
 
-    public void BadAnswer()
+    private void TriggerAudioInstruction()
+    {
+        _audioSourceInstruction.Play();
+    }
+
+    public void TriggerAudioBadAnswer()
     {
         _audioSourceBad.volume = 1;
         _audioSourceBad.Play();
     }
 
-    public void GoodAnswer()
+    public void TriggerAudioGoodAnswer()
     {
         _audioSourceGood.volume = 1;
         _audioSourceGood.Play();

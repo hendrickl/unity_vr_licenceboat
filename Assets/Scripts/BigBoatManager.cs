@@ -19,9 +19,16 @@ public class BigBoatManager : MonoBehaviour
     {
         iTween.MoveTo(gameObject, iTween.Hash("position", _targetPosition, "speed", _speed, "easetype", "linear"));
 
-        _audioSource.loop = false;
-        _audioSource.volume = 1f;
-        Invoke("TriggerAudio", _timer);
+        if (!_audioSource)
+        {
+            throw new UnityException();
+        }
+        else
+        {
+            _audioSource.loop = false;
+            _audioSource.volume = 1f;
+            Invoke("TriggerAudio", _timer);
+        }
     }
 
     private void TriggerAudio()
