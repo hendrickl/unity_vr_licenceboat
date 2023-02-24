@@ -21,7 +21,7 @@ public class BigBoatManager : MonoBehaviour
 
         if (!_audioSource)
         {
-            throw new UnityException();
+            throw new UnityException("The audiosource is not initialized");
         }
         else
         {
