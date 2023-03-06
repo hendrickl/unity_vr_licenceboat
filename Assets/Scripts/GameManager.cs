@@ -9,13 +9,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _audioSourceInstruction;
     [SerializeField] private AudioSource _audioSourceBad;
     [SerializeField] private AudioSource _audioSourceGood;
-    [SerializeField] private float _timerAudio;
-    [SerializeField] private float _timerInstruction;
+    [SerializeField] private float _timerAudioInstruction;
+    [SerializeField] private float _timerPannelInstruction;
 
     private void Start()
     {
-        Invoke("TriggerAudioInstruction", _timerAudio);
-        Invoke("DisplayInstruction", _timerInstruction);
+        StartCoroutine("TriggerAudioInstructionCoroutine");
+        StartCoroutine("DisplayInstructionCoroutine");
+    }
+
+    private IEnumerator DisplayInstructionCoroutine()
+    {
+        yield return new WaitForSeconds(_timerPannelInstruction);
+        _instruction.SetActive(true);
+    }
+
+    private IEnumerator TriggerAudioInstructionCoroutine()
+    {
+        yield return new WaitForSeconds(_timerAudioInstruction);
+        _audioSourceInstruction.Play();
     }
 
     public void RestarScene()
@@ -28,15 +40,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    private void DisplayInstruction()
-    {
-        _instruction.SetActive(true);
-    }
-
+    /*
     private void TriggerAudioInstruction()
     {
         _audioSourceInstruction.Play();
     }
+    */
 
     public void TriggerAudioBadAnswer()
     {

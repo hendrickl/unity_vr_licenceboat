@@ -7,7 +7,7 @@ public class BigBoatManager : MonoBehaviour
     private Vector3 _targetPosition;
     [SerializeField] private GameObject _targetPoint;
     [SerializeField] private float _speed;
-    [SerializeField] private float _timer;
+    [SerializeField] private float _timerAudioKlaxoon;
     [SerializeField] private AudioSource _audioSource;
 
     private void Awake()
@@ -27,7 +27,7 @@ public class BigBoatManager : MonoBehaviour
         {
             _audioSource.loop = false;
             _audioSource.volume = 1f;
-            Invoke("TriggerAudioKlaxoon", _timer);
+            Invoke("TriggerAudioKlaxoon", _timerAudioKlaxoon);
         }
     }
 
