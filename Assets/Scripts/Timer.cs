@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float _countDownTime;
     private float _currentTime;
+    [SerializeField] private float _countDownTime;
 
     private void Start()
     {
