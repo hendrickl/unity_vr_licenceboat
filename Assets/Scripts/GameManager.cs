@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _audioSourceBadAnswer;
     [SerializeField] private AudioSource _audioSourceGoodAnswer;
     [SerializeField] private AudioClip _audioOnClick;
+    [SerializeField] private AudioClip _audioOnExit;
     [SerializeField] private float _timerAudioInstruction;
     [SerializeField] private float _timerPannelInstruction;
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         _audioSourceInstruction.Play();
     }
 
-    // Logic to load the scene right after the click sound
+    // * * * Logic to load the scene right after the click sound * * *
     public void LoadSceneOnClick(int index)
     {
         TriggerAudioOnClick();
@@ -48,18 +49,31 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(index);
     }
-    // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
+    // * * * Scene Management * * * 
     public void RestarScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // Audio logic 
+    public void ExitApplication()
+    {
+        TriggerAudioOnExit();
+        Application.Quit();
+    }
+
+    // * * * Audio logic * * * 
     // Todo : refactoring
     private void TriggerAudioOnClick()
     {
         _audioSourceInstruction.clip = _audioOnClick;
+        _audioSourceInstruction.volume = 1f;
+        _audioSourceInstruction.Play();
+    }
+
+    private void TriggerAudioOnExit()
+    {
+        _audioSourceInstruction.clip = _audioOnExit;
         _audioSourceInstruction.volume = 1f;
         _audioSourceInstruction.Play();
     }
@@ -75,5 +89,4 @@ public class GameManager : MonoBehaviour
         _audioSourceGoodAnswer.volume = 1f;
         _audioSourceGoodAnswer.Play();
     }
-    // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 }
