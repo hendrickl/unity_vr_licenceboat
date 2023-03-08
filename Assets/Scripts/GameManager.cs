@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _instruction;
     [SerializeField] private AudioSource _audioSourceInstruction;
-    [SerializeField] private AudioSource _audioSourceBad;
-    [SerializeField] private AudioSource _audioSourceGood;
+    [SerializeField] private AudioSource _audioSourceBadAnswer;
+    [SerializeField] private AudioSource _audioSourceGoodAnswer;
+    [SerializeField] private AudioClip _audioOnClick;
     [SerializeField] private float _timerAudioInstruction;
     [SerializeField] private float _timerPannelInstruction;
 
@@ -30,25 +31,49 @@ public class GameManager : MonoBehaviour
         _audioSourceInstruction.Play();
     }
 
+    // Logic to load the scene right after the click sound
+    public void LoadSceneOnClick(int index)
+    {
+        TriggerAudioOnClick();
+        StartCoroutine(LoadSceneAfterAudioOnClickCoroutine(index, 0.35f));
+    }
+
+    private IEnumerator LoadSceneAfterAudioOnClickCoroutine(int index, float time)
+    {
+        yield return new WaitForSeconds(time);
+        LoadScene(index);
+    }
+
+    private void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+    // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
     public void RestarScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void LoadScene(int index)
+    // Audio logic 
+    // Todo : refactoring
+    private void TriggerAudioOnClick()
     {
-        SceneManager.LoadScene(index);
+        _audioSourceInstruction.clip = _audioOnClick;
+        _audioSourceInstruction.volume = 1f;
+        _audioSourceInstruction.Play();
     }
 
     public void TriggerAudioBadAnswer()
     {
-        _audioSourceBad.volume = 1;
-        _audioSourceBad.Play();
+        _audioSourceBadAnswer.volume = 1f;
+        _audioSourceBadAnswer.Play();
     }
 
     public void TriggerAudioGoodAnswer()
     {
-        _audioSourceGood.volume = 1;
-        _audioSourceGood.Play();
+        _audioSourceGoodAnswer.volume = 1f;
+        _audioSourceGoodAnswer.Play();
     }
+    // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 }
