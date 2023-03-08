@@ -8,7 +8,6 @@ public class BigBoatBehaviour : MonoBehaviour
     [SerializeField] private GameObject _targetPoint;
     [SerializeField] private float _speed;
 
-
     private void Awake()
     {
         _targetPosition = _targetPoint.transform.position;
