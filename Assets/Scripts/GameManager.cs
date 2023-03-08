@@ -7,10 +7,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _instruction;
     [SerializeField] private AudioSource _audioSourceInstruction;
-    [SerializeField] private AudioSource _audioSourceBadAnswer;
-    [SerializeField] private AudioSource _audioSourceGoodAnswer;
     [SerializeField] private AudioClip _audioOnClick;
     [SerializeField] private AudioClip _audioOnExit;
+    [SerializeField] private AudioClip _audioBadAnswer;
+    [SerializeField] private AudioClip _audioGoodAnswer;
     [SerializeField] private float _timerAudioInstruction;
     [SerializeField] private float _timerPannelInstruction;
 
@@ -80,13 +80,15 @@ public class GameManager : MonoBehaviour
 
     public void TriggerAudioBadAnswer()
     {
-        _audioSourceBadAnswer.volume = 1f;
-        _audioSourceBadAnswer.Play();
+        _audioSourceInstruction.clip = _audioBadAnswer;
+        _audioSourceInstruction.volume = 1f;
+        _audioSourceInstruction.Play();
     }
 
     public void TriggerAudioGoodAnswer()
     {
-        _audioSourceGoodAnswer.volume = 1f;
-        _audioSourceGoodAnswer.Play();
+        _audioSourceInstruction.clip = _audioGoodAnswer;
+        _audioSourceInstruction.volume = 1f;
+        _audioSourceInstruction.Play(); ;
     }
 }
