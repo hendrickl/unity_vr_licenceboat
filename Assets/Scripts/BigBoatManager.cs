@@ -8,6 +8,7 @@ public class BigBoatManager : MonoBehaviour
     [SerializeField] private GameObject _targetPoint;
     [SerializeField] private float _speed;
     [SerializeField] private float _timerAudioKlaxoon;
+    [SerializeField] private float _timerAudioKlaxoonRepeat;
     [SerializeField] private AudioSource _audioSource;
 
     private void Awake()
@@ -27,24 +28,22 @@ public class BigBoatManager : MonoBehaviour
         {
             _audioSource.loop = false;
             _audioSource.volume = 1f;
-            Invoke("TriggerAudioKlaxoon", _timerAudioKlaxoon);
+            StartCoroutine("TriggerAudioKlaxoonCoroutine");
         }
+    }
+
+    private IEnumerator TriggerAudioKlaxoonCoroutine()
+    {
+        yield return new WaitForSeconds(_timerAudioKlaxoon);
+        _audioSource.Play();
+
+        yield return new WaitForSeconds(_timerAudioKlaxoonRepeat);
+        _audioSource.Play();
     }
 
     private void MoveBoat()
     {
         iTween.MoveTo(gameObject, iTween.Hash("position", _targetPosition, "speed", _speed, "easetype", "linear"));
 
-    }
-
-    private void TriggerAudioKlaxoon()
-    {
-        _audioSource.Play();
-        Invoke("TriggerAudioKlaxoonAgain", _audioSource.clip.length);
-    }
-
-    private void TriggerAudioKlaxoonAgain()
-    {
-        _audioSource.Play();
     }
 }

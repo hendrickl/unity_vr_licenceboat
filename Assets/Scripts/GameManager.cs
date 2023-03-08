@@ -40,13 +40,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    /*
-    private void TriggerAudioInstruction()
-    {
-        _audioSourceInstruction.Play();
-    }
-    */
-
     public void TriggerAudioBadAnswer()
     {
         _audioSourceBad.volume = 1;
