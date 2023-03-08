@@ -1921,7 +1921,7 @@ PrefabInstance:
     - target: {fileID: 5348379276677861951, guid: 72b312ccb30fe6e4c93a945cfc1abd05,
         type: 3}
       propertyPath: m_Name
-      value: LeftHand Ray Controller
+      value: LeftHand Controller
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72b312ccb30fe6e4c93a945cfc1abd05, type: 3}
