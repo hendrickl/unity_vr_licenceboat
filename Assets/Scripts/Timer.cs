@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
         Debug.Log("Current time : " + _currentTime);
     }
 
-    void Update()
+    private void Update()
     {
         float timeLeft = _currentTime - Time.time;
         int secondsLeft = Mathf.FloorToInt(timeLeft % 60);
