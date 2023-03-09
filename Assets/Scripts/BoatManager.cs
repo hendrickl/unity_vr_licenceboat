@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class BoatManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip _engineSound;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private CharacterController _cc;
 
-    public void TriggerAudio()
+    private void Update()
     {
-
+        if (_cc.velocity.magnitude > 0.1f)
+        {
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
+        }
+        else
+        {
+            _audioSource.Stop();
+        }
     }
 }
