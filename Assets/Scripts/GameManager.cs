@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip _audioGoodAnswer;
 
     // * * * Variables related to time
-    [SerializeField] private float _timer = 10f;
+    [SerializeField] private float _timer;
     [SerializeField] private float _timerAudioInstruction;
     [SerializeField] private float _timerPannelInstruction;
 
@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Timer();
+
+        if (_timer <= 0)
+        {
+            _timerText.gameObject.SetActive(false);
+        }
     }
 
     // * * * Logic for instructions management
@@ -88,16 +93,10 @@ public class GameManager : MonoBehaviour
     {
         _timer -= Time.deltaTime;
         DisplayTimer();
-
-        if (_timer <= 0)
-        {
-            // Afficger l'instruction
-        }
     }
 
     private void DisplayTimer()
     {
         _timerText.text = Mathf.RoundToInt(_timer).ToString();
-        print(_timerText.text);
     }
 }
