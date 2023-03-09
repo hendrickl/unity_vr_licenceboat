@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip _audioGoodAnswer;
 
     // * * * Variables related to time
+    [SerializeField] private float _timer = 10f;
     [SerializeField] private float _timerAudioInstruction;
     [SerializeField] private float _timerPannelInstruction;
 
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine("TriggerAudioInstructionCoroutine");
         StartCoroutine("DisplayInstructionCoroutine");
+    }
+
+    private void Update()
+    {
+        Timer();
     }
 
     // * * * Logic for instructions management
@@ -72,5 +78,16 @@ public class GameManager : MonoBehaviour
         _audioSourceInstruction.clip = audioClip;
         _audioSourceInstruction.volume = 1f;
         _audioSourceInstruction.Play();
+    }
+
+    // * * * Timer * * *
+    private void Timer()
+    {
+        _timer -= Time.deltaTime;
+
+        if (_timer <= 0)
+        {
+            print("time is over");
+        }
     }
 }

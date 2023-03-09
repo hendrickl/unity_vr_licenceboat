@@ -581,6 +581,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 435318183, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
+      propertyPath: _speed
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 435318183, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
       propertyPath: _targetPoint
       value: 
       objectReference: {fileID: 1691701048}
@@ -905,6 +909,7 @@ MonoBehaviour:
   _audioOnExit: {fileID: 8300000, guid: 21f7c4ead8459094594e841fc776f846, type: 3}
   _audioBadAnswer: {fileID: 8300000, guid: 49b6c7516a66e884db3977cd5ecc5716, type: 3}
   _audioGoodAnswer: {fileID: 8300000, guid: afadda76ab6f8b44ea7ff0814c6f830c, type: 3}
+  _timer: 10
   _timerAudioInstruction: 1.5
   _timerPannelInstruction: 17
 --- !u!4 &398262707
