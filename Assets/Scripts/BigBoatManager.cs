@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BigBoatManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource _audioSource;
+
+    // * * * Variables related to time * * *
     [SerializeField] private float _timerAudioKlaxoon;
     [SerializeField] private float _timerAudioKlaxoonRepeat;
-    [SerializeField] private AudioSource _audioSource;
 
     private void Start()
     {
@@ -22,6 +24,7 @@ public class BigBoatManager : MonoBehaviour
         }
     }
 
+    // * * * Logic to trigger the klaxoon 2 times * * *    
     private IEnumerator TriggerAudioKlaxoonCoroutine()
     {
         yield return new WaitForSeconds(_timerAudioKlaxoon);

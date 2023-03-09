@@ -1,16 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _instruction;
+
+    // * * * Variables related to audio * * *
     [SerializeField] private AudioSource _audioSourceInstruction;
     [SerializeField] private AudioClip _audioOnClick;
     [SerializeField] private AudioClip _audioOnExit;
     [SerializeField] private AudioClip _audioBadAnswer;
     [SerializeField] private AudioClip _audioGoodAnswer;
+
+    // * * * Variables related to time
     [SerializeField] private float _timerAudioInstruction;
     [SerializeField] private float _timerPannelInstruction;
 
@@ -20,6 +23,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine("DisplayInstructionCoroutine");
     }
 
+    // * * * Logic for instructions management
     private IEnumerator DisplayInstructionCoroutine()
     {
         yield return new WaitForSeconds(_timerPannelInstruction);
@@ -35,7 +39,7 @@ public class GameManager : MonoBehaviour
     // * * * Logic to load the scene right after the click sound * * *
     public void LoadSceneOnClick(int index)
     {
-        TriggerAudioOnClick();
+        TriggerAudio(_audioOnClick);
         StartCoroutine(LoadSceneAfterAudioOnClickCoroutine(index, 0.35f));
     }
 
@@ -45,12 +49,12 @@ public class GameManager : MonoBehaviour
         LoadScene(index);
     }
 
+    // * * * Level Management * * * 
     private void LoadScene(int index)
     {
         SceneManager.LoadScene(index);
     }
 
-    // * * * Scene Management * * * 
     public void RestarScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -58,37 +62,15 @@ public class GameManager : MonoBehaviour
 
     public void ExitApplication()
     {
-        TriggerAudioOnExit();
+        TriggerAudio(_audioOnExit);
         Application.Quit();
     }
 
     // * * * Audio logic * * * 
-    // Todo : refactoring
-    private void TriggerAudioOnClick()
+    public void TriggerAudio(AudioClip audioClip)
     {
-        _audioSourceInstruction.clip = _audioOnClick;
+        _audioSourceInstruction.clip = audioClip;
         _audioSourceInstruction.volume = 1f;
         _audioSourceInstruction.Play();
-    }
-
-    private void TriggerAudioOnExit()
-    {
-        _audioSourceInstruction.clip = _audioOnExit;
-        _audioSourceInstruction.volume = 1f;
-        _audioSourceInstruction.Play();
-    }
-
-    public void TriggerAudioBadAnswer()
-    {
-        _audioSourceInstruction.clip = _audioBadAnswer;
-        _audioSourceInstruction.volume = 1f;
-        _audioSourceInstruction.Play();
-    }
-
-    public void TriggerAudioGoodAnswer()
-    {
-        _audioSourceInstruction.clip = _audioGoodAnswer;
-        _audioSourceInstruction.volume = 1f;
-        _audioSourceInstruction.Play(); ;
     }
 }

@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 152368379}
-  m_TurnSpeed: 30
+  m_TurnSpeed: 4
   m_LeftHandTurnAction:
     m_UseReference: 0
     m_Action:
@@ -518,7 +518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -563,6 +563,22 @@ PrefabInstance:
     - target: {fileID: 202394857, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
       propertyPath: _childAmount
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 435318177, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
+      propertyPath: _timerAudioKlaxoon
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 435318177, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
+      propertyPath: _timerAudioKlaxoonRepeat
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 435318178, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 435318178, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 435318183, guid: 0dab8a6c9659f9e40a177a8d1b26ff68, type: 3}
       propertyPath: _targetPoint
@@ -1339,11 +1355,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398262706}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: TriggerAudioBadAnswer
-        m_Mode: 1
+        m_MethodName: TriggerAudio
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 49b6c7516a66e884db3977cd5ecc5716,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2080,11 +2097,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398262706}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: TriggerAudioGoodAnswer
-        m_Mode: 1
+        m_MethodName: TriggerAudio
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: afadda76ab6f8b44ea7ff0814c6f830c,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2680,11 +2698,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398262706}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: TriggerAudioBadAnswer
-        m_Mode: 1
+        m_MethodName: TriggerAudio
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 8300000, guid: 49b6c7516a66e884db3977cd5ecc5716,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
