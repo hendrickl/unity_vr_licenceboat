@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    // * * * Variables related to canvas objects
     [SerializeField] private GameObject _instruction;
+    [SerializeField] private TMP_Text _timerText;
 
     // * * * Variables related to audio * * *
     [SerializeField] private AudioSource _audioSourceInstruction;
@@ -80,14 +83,21 @@ public class GameManager : MonoBehaviour
         _audioSourceInstruction.Play();
     }
 
-    // * * * Timer * * *
+    // * * * Compute and display timer * * *
     private void Timer()
     {
         _timer -= Time.deltaTime;
+        DisplayTimer();
 
         if (_timer <= 0)
         {
-            print("time is over");
+            // Afficger l'instruction
         }
+    }
+
+    private void DisplayTimer()
+    {
+        _timerText.text = Mathf.RoundToInt(_timer).ToString();
+        print(_timerText.text);
     }
 }
