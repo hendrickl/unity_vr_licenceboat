@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
     // * * * Variables related to canvas objects
     [SerializeField] private GameObject _instruction;
     [SerializeField] private GameObject _stopPannel;
+    [SerializeField] private GameObject _nextPannel;
+    [SerializeField] private GameObject _badPannel;
     [SerializeField] private GameObject _restartButton;
+    [SerializeField] private GameObject _tryAgainButton;
+    [SerializeField] private GameObject _nextButton;
     [SerializeField] private GameObject _answerA;
     [SerializeField] private GameObject _answerB;
     [SerializeField] private GameObject _answerC;
@@ -53,7 +57,8 @@ public class GameManager : MonoBehaviour
         {
             _answerA.SetActive(false);
             _answerC.SetActive(false);
-            TriggerAudio(_audioGoodAction);
+
+            GoodAction();
         }
 
         if (other.gameObject.CompareTag("MainBoat") && gameObject.CompareTag("ColliderBadAnswer"))
@@ -139,9 +144,11 @@ public class GameManager : MonoBehaviour
     }
 
     // * * * Logic for user actions after the instructions * * *
+    // TODO : refactoring
     private void BanningAction()
     {
         TriggerAudio(_audioBanning);
+        _instruction.SetActive(false);
         _stopPannel.SetActive(true);
         _restartButton.SetActive(true);
         Time.timeScale = 0.05f;
@@ -150,7 +157,18 @@ public class GameManager : MonoBehaviour
     private void BadAction()
     {
         TriggerAudio(_audioBadAction);
-        _restartButton.SetActive(true);
-        Time.timeScale = 0.2f;
+        _instruction.SetActive(false);
+        _badPannel.SetActive(true);
+        _tryAgainButton.SetActive(true);
+        Time.timeScale = 0.1f;
+    }
+
+    private void GoodAction()
+    {
+        TriggerAudio(_audioGoodAction);
+        _instruction.SetActive(false);
+        _nextPannel.SetActive(true);
+        _nextButton.SetActive(true);
+        Time.timeScale = 0.1f;
     }
 }
