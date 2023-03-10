@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class AnimateHands : MonoBehaviour
 {
     [SerializeField] private InputActionProperty _pinchAction;
-
     [SerializeField] private InputActionReference _gripAction;
-
     [SerializeField] private Animator _animator;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float triggerVal = _pinchAction.action.ReadValue<float>();
         _animator.SetFloat("Trigger", triggerVal);

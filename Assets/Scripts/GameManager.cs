@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
 {
     // * * * Variables related to canvas objects
     [SerializeField] private GameObject _instruction;
+    [SerializeField] private GameObject _stopPannel;
+    [SerializeField] private GameObject _restartButton;
+    [SerializeField] private GameObject _answerA;
+    [SerializeField] private GameObject _answerB;
+    [SerializeField] private GameObject _answerC;
     [SerializeField] private TMP_Text _timerText;
 
     // * * * Variables related to audio * * *
@@ -15,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip _audioOnExit;
     [SerializeField] private AudioClip _audioBadAnswer;
     [SerializeField] private AudioClip _audioGoodAnswer;
+    [SerializeField] private AudioClip _audioSiren;
+    [SerializeField] private AudioClip _audioBanning;
 
     // * * * Variables related to time
     [SerializeField] private float _timer;
@@ -23,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
         StartCoroutine("TriggerAudioInstructionCoroutine");
         StartCoroutine("DisplayInstructionCoroutine");
     }
@@ -34,6 +42,35 @@ public class GameManager : MonoBehaviour
         if (_timer <= 0)
         {
             _timerText.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("MainBoat") && gameObject.CompareTag("ColliderGoodAnswer"))
+        {
+            _answerA.SetActive(false);
+            _answerC.SetActive(false);
+            TriggerAudio(_audioGoodAnswer);
+        }
+
+        if (other.gameObject.CompareTag("MainBoat") && gameObject.CompareTag("ColliderBadAnswer"))
+        {
+            CanvasRenderer rendererA = _answerA.GetComponent<CanvasRenderer>();
+            CanvasRenderer rendererC = _answerC.GetComponent<CanvasRenderer>();
+            Color gray = Color.gray;
+
+            rendererA.SetColor(gray);
+            rendererC.SetColor(gray);
+            TriggerAudio(_audioSiren);
+        }
+
+        if (other.gameObject.CompareTag("MainBoat") && gameObject.CompareTag("ColliderBanning") && Time.timeScale == 1.0f)
+        {
+            TriggerAudio(_audioBanning);
+            _stopPannel.SetActive(true);
+            _restartButton.SetActive(true);
+            Time.timeScale = 0.05f;
         }
     }
 
@@ -53,6 +90,7 @@ public class GameManager : MonoBehaviour
     // * * * Logic to load the scene right after the click sound * * *
     public void LoadSceneOnClick(int index)
     {
+        Time.timeScale = 1.0f; // Redeclare timescale to O when the user is in a banning situation
         TriggerAudio(_audioOnClick);
         StartCoroutine(LoadSceneAfterAudioOnClickCoroutine(index, 0.35f));
     }
