@@ -1461,7 +1461,7 @@ PrefabInstance:
     - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
       propertyPath: _timerPannelInstruction
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5568647962083059742, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
@@ -3189,7 +3189,7 @@ PrefabInstance:
     - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
       propertyPath: _timerPannelInstruction
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5568647962083059741, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
@@ -3662,7 +3662,7 @@ PrefabInstance:
     - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
       propertyPath: _timerPannelInstruction
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5568647962083059741, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
@@ -4106,6 +4106,11 @@ PrefabInstance:
       propertyPath: _restartButton
       value: 
       objectReference: {fileID: 1214474839}
+    - target: {fileID: 9185957837275458008, guid: a98e744f2eec64343a35878f4758aab5,
+        type: 3}
+      propertyPath: _timerPannelInstruction
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 9185957837275458009, guid: a98e744f2eec64343a35878f4758aab5,
         type: 3}
       propertyPath: m_RootOrder

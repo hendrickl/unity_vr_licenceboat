@@ -67,10 +67,7 @@ public class GameManager : MonoBehaviour
 
         if (other.gameObject.CompareTag("MainBoat") && gameObject.CompareTag("ColliderBanning") && Time.timeScale == 1.0f)
         {
-            TriggerAudio(_audioBanning);
-            _stopPannel.SetActive(true);
-            _restartButton.SetActive(true);
-            Time.timeScale = 0.05f;
+            BanningAction();
         }
     }
 
@@ -136,5 +133,14 @@ public class GameManager : MonoBehaviour
     private void DisplayTimer()
     {
         _timerText.text = Mathf.RoundToInt(_timer).ToString();
+    }
+
+    // * * * Logic for banning actions * * *
+    private void BanningAction()
+    {
+        TriggerAudio(_audioBanning);
+        _stopPannel.SetActive(true);
+        _restartButton.SetActive(true);
+        Time.timeScale = 0.05f;
     }
 }
