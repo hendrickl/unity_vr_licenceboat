@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip _audioOnExit;
     [SerializeField] private AudioClip _audioBadAnswer;
     [SerializeField] private AudioClip _audioGoodAnswer;
+    [SerializeField] private AudioClip _audioGoodAction;
+    [SerializeField] private AudioClip _audioBadAction;
     [SerializeField] private AudioClip _audioSiren;
     [SerializeField] private AudioClip _audioBanning;
 
@@ -51,7 +53,7 @@ public class GameManager : MonoBehaviour
         {
             _answerA.SetActive(false);
             _answerC.SetActive(false);
-            TriggerAudio(_audioGoodAnswer);
+            TriggerAudio(_audioGoodAction);
         }
 
         if (other.gameObject.CompareTag("MainBoat") && gameObject.CompareTag("ColliderBadAnswer"))
@@ -62,7 +64,8 @@ public class GameManager : MonoBehaviour
 
             rendererA.SetColor(gray);
             rendererC.SetColor(gray);
-            TriggerAudio(_audioSiren);
+
+            BadAction();
         }
 
         if (other.gameObject.CompareTag("MainBoat") && gameObject.CompareTag("ColliderBanning") && Time.timeScale == 1.0f)
@@ -135,12 +138,19 @@ public class GameManager : MonoBehaviour
         _timerText.text = Mathf.RoundToInt(_timer).ToString();
     }
 
-    // * * * Logic for banning actions * * *
+    // * * * Logic for user actions after the instructions * * *
     private void BanningAction()
     {
         TriggerAudio(_audioBanning);
         _stopPannel.SetActive(true);
         _restartButton.SetActive(true);
         Time.timeScale = 0.05f;
+    }
+
+    private void BadAction()
+    {
+        TriggerAudio(_audioBadAction);
+        _restartButton.SetActive(true);
+        Time.timeScale = 0.2f;
     }
 }

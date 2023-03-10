@@ -1455,6 +1455,16 @@ PrefabInstance:
       objectReference: {fileID: 1214474839}
     - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
+      propertyPath: _audioBadAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 884ec5b47e434de42973ac958f463c66, type: 3}
+    - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
+        type: 3}
+      propertyPath: _audioGoodAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 79ec7ac1a8af4124eac7620e6fbd58b9, type: 3}
+    - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
+        type: 3}
       propertyPath: _audioSourceInstruction
       value: 
       objectReference: {fileID: 398262708}
@@ -3183,6 +3193,16 @@ PrefabInstance:
       objectReference: {fileID: 1214474839}
     - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
+      propertyPath: _audioBadAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 884ec5b47e434de42973ac958f463c66, type: 3}
+    - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
+        type: 3}
+      propertyPath: _audioGoodAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 79ec7ac1a8af4124eac7620e6fbd58b9, type: 3}
+    - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
+        type: 3}
       propertyPath: _audioSourceInstruction
       value: 
       objectReference: {fileID: 398262708}
@@ -3656,6 +3676,16 @@ PrefabInstance:
       objectReference: {fileID: 1214474839}
     - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
         type: 3}
+      propertyPath: _audioBadAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 884ec5b47e434de42973ac958f463c66, type: 3}
+    - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
+        type: 3}
+      propertyPath: _audioGoodAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 79ec7ac1a8af4124eac7620e6fbd58b9, type: 3}
+    - target: {fileID: 5568647962083059740, guid: b36ceb1b6d201fc41a3a358cedfa4e4b,
+        type: 3}
       propertyPath: _audioSourceInstruction
       value: 
       objectReference: {fileID: 398262708}
@@ -4106,6 +4136,16 @@ PrefabInstance:
       propertyPath: _restartButton
       value: 
       objectReference: {fileID: 1214474839}
+    - target: {fileID: 9185957837275458008, guid: a98e744f2eec64343a35878f4758aab5,
+        type: 3}
+      propertyPath: _audioBadAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 884ec5b47e434de42973ac958f463c66, type: 3}
+    - target: {fileID: 9185957837275458008, guid: a98e744f2eec64343a35878f4758aab5,
+        type: 3}
+      propertyPath: _audioGoodAction
+      value: 
+      objectReference: {fileID: 8300000, guid: 79ec7ac1a8af4124eac7620e6fbd58b9, type: 3}
     - target: {fileID: 9185957837275458008, guid: a98e744f2eec64343a35878f4758aab5,
         type: 3}
       propertyPath: _timerPannelInstruction
